@@ -11,30 +11,25 @@ public class Hangman {
     private boolean guessed = false;
     private String answer;
     private final static int EASY_CHANCES = 10;
-    private final static int MEDIUM_CHANCES = 8;
-    private final static int DIFFICULT_CHANCES = 8;
-    private final static int IMPOSSIBLE_CHANCES = 6;
+    private final static int MEDIUM_CHANCES = 10;
+    private final static int DIFFICULT_CHANCES = 10;
     private HashMap<Character, List<Integer>> map;
 
 
 
     public Hangman(String difficulty) throws IOException {
-        if (difficulty.equals("Easy")) {
+        if (difficulty.equals("easy")) {
             this.currentDifficulty = Difficulty.EASY;
             this.numberOfChances = EASY_CHANCES;
-            this.answer = chooseWord("./src/EasyStrings");
-        } else if(difficulty.equals("Medium")) {
+            this.answer = chooseWord("./hangmanGame/src/EasyStrings");
+        } else if(difficulty.equals("medium")) {
             this.currentDifficulty = Difficulty.MEDIUM;
             this.numberOfChances = MEDIUM_CHANCES;
-            this.answer = chooseWord("./src/MediumStrings");
-        } else if(difficulty.equals("Difficult")) {
+            this.answer = chooseWord("./hangmanGame/src/MediumStrings");
+        } else if(difficulty.equals("difficult")) {
             this.currentDifficulty = Difficulty.DIFFICULT;
             this.numberOfChances = DIFFICULT_CHANCES;
-            this.answer = chooseWord("./src/DifficultStrings");
-        } else if(difficulty.equals("Impossible")) {
-            this.currentDifficulty = Difficulty.IMPOSSIBLE;
-            this.numberOfChances = IMPOSSIBLE_CHANCES;
-            this.answer = chooseWord("./src/DifficultStrings");
+            this.answer = chooseWord("./hangmanGame/src/DifficultStrings");
         }
 
         initializeHashMap(this.answer);
