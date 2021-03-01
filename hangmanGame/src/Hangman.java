@@ -104,7 +104,6 @@ public class Hangman {
                 counter++;
                 if(!guessWord(letter)){
                     numberOfChances--;
-                    System.out.println("Whoops!");
                 } else {
                     myList = map.get(letter);
                     if(myList.size() == 1) {
@@ -122,6 +121,7 @@ public class Hangman {
             for (int i = 0; i < array.length; i++) {
                 compareString = compareString + array[i];
             }
+            printImage(this.numberOfChances);
             if(answer.equals(compareString)) {
                 guessed = true;
                 break;
@@ -134,6 +134,77 @@ public class Hangman {
             System.out.println("You Lost!");
             System.out.println("Word was: " + answer);
         }
+    }
+
+    private void printImage(int chancesLeft) {
+        if(chancesLeft == 9) {
+            System.out.println("   \n\n");
+            System.out.println("-------");
+            System.out.println("|     |");
+        } else if (chancesLeft == 8) {
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("-------");
+            System.out.println("|     |");
+        } else if (chancesLeft == 7) {
+            System.out.println("   _________");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("-------");
+            System.out.println("|     |");
+        } else if (chancesLeft == 6) {
+            System.out.println("   _________");
+            System.out.println("   |       |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("-------");
+            System.out.println("|     |");
+        }else if (chancesLeft == 5) {
+            System.out.println("   _________");
+            System.out.println("   |       |");
+            System.out.println("   |       0");
+            System.out.println("   |");
+            System.out.println("-------");
+            System.out.println("|     |");
+        } else if (chancesLeft == 4) {
+            System.out.println("   _________");
+            System.out.println("   |       |");
+            System.out.println("   |       0");
+            System.out.println("   |       |");
+            System.out.println("-------");
+            System.out.println("|     |");
+        }else if (chancesLeft == 3) {
+            System.out.println("   _________");
+            System.out.println("   |       |");
+            System.out.println("   |      \\0");
+            System.out.println("   |       |");
+            System.out.println("-------");
+            System.out.println("|     |");
+        }else if (chancesLeft == 2) {
+            System.out.println("   _________");
+            System.out.println("   |       |");
+            System.out.println("   |      \\0/");
+            System.out.println("   |       |");
+            System.out.println("-------");
+            System.out.println("|     |");
+        } else if (chancesLeft == 1) {
+            System.out.println("   _________");
+            System.out.println("   |       |");
+            System.out.println("   |      \\0/");
+            System.out.println("   |       |");
+            System.out.println("-------   /");
+            System.out.println("|     |");
+        } else if (chancesLeft == 0) {
+            System.out.println("   _________");
+            System.out.println("   |       |");
+            System.out.println("   |      \\0/");
+            System.out.println("   |       |");
+            System.out.println("-------   / \\");
+            System.out.println("|     |");
+        }
+
     }
 
     public Difficulty getCurrentDifficulty() {
